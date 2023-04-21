@@ -1,0 +1,39 @@
+<!-- templates/nyquist_plot.html -->
+<html>
+  <head>
+    <title>Control System Tools - Nyquist Plot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/bode_plot_input">Bode Plot</a></li>
+          <li><a href="/nyquist_plot">Nyquist Plot</a></li>
+          <li><a href="/root_locus">Root Locus</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Nyquist Plot</h1>
+      <img src="data:image/png;base64,{{ plot_url }}" id="nyquist_plot">
+      <br>
+      <button id="download_button">Download Plot</button>
+    </div>
+    <script>
+      const downloadButton = document.getElementById("download_button");
+      const nyquistPlot = document.getElementById("nyquist_plot");
+
+      downloadButton.addEventListener("click", function() {
+        const link = document.createElement("a");
+        link.download = "nyquist_plot.png";
+        link.href = nyquistPlot.src;
+        link.click();
+      });
+    </script>
+    <footer>
+      <p><a href="mailto:trridhul@gmail.com">For any suggesstions contact - trridhul@gmail.com</a></p>
+    </footer>
+  </body>
+</html>

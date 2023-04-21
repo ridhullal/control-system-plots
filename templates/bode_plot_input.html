@@ -1,0 +1,35 @@
+<!-- templates/index.html -->
+<html>
+  <head>
+    <title>Control System Tools - Bode Plot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/bode_plot_input">Bode Plot</a></li>
+          <li><a href="/nyquist_plot">Nyquist Plot</a></li>
+          <li><a href="/root_locus">Root Locus</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Bode Plot</h1>
+      <form action="{{ url_for('bode_plot') }}" method="post">
+        <div class="form-group">
+          <label for="num">Numerator coefficients:</label>
+          <input type="text" name="num" id="num" placeholder="Enter numerator coefficients separated by comma" required>
+        </div>
+        <div class="form-group">
+          <label for="den">Denominator coefficients:</label>
+          <input type="text" name="den" id="den" placeholder="Enter denominator coefficients separated by comma" required>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>
+
+

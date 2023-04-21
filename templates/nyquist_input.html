@@ -1,0 +1,33 @@
+<!-- templates/root_locus_input.html -->
+<html>
+  <head>
+    <title>Control System Tools - Root Locus Input</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/bode_plot_input">Bode Plot</a></li>
+          <li><a href="/nyquist_plot">Nyquist Plot</a></li>
+          <li><a href="/root_locus">Root Locus</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Nyquist Plot Input</h1>
+      <form action="{{ url_for('nyquist_plot') }}" method="post">
+        <div>
+          <label for="numerator">Numerator Coefficients:</label>
+          <input type="text" name="numerator" id="numerator" placeholder="Enter numerator coefficients separated by comma" required>
+        </div>
+        <div>
+          <label for="denominator">Denominator Coefficients:</label>
+          <input type="text" name="denominator" id="denominator" placeholder="Enter denominator coefficients separated by comma" required>
+        </div>
+        <input type="submit" value="Plot Nyquist plot">
+      </form>
+    </div>
+  </body>
+</html>
